@@ -27,7 +27,7 @@
                     <key>needs-shine</key>
                     <false/>
                     <key>url</key>
-                    <string>http://mywebserver.com/显示的图标.png</string>      		<!-- 显示的图标.png的http地址 -->
+                    <string>https://code.aliyun.com/490830025/js_flutter/raw/master/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png</string>      		<!-- 显示的图标.png的http地址 -->
                 </dict>
             </array>
             <key>metadata</key>

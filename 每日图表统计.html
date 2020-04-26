@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://dcloud.io/hellomui/examples/echarts.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>各位领导，这是今天的报表统计分析，请查阅</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./每日图表统计/mui.min.css">
+		<!--App自定义的css-->
+		<!--<link rel="stylesheet" type="text/css" href="../css/app.css" />-->
+		<style>
+			.chart {
+				height: 200px;
+				margin: 0px;
+				padding: 0px;
+			}
+			h5 {
+				margin-top: 30px;
+				font-weight: bold;
+			}
+			h5:first-child {
+				margin-top: 15px;
+			}
+		</style>
+		<script src="./每日图表统计/mui.min.js"></script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">4月26日实时统计</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<h5>柱图</h5>
+				<div class="chart" id="barChart" _echarts_instance_="1587867821593" style="-webkit-tap-highlight-color: transparent; user-select: none; background-color: rgba(0, 0, 0, 0); cursor: default;"><div style="position: relative; overflow: hidden; width: 1403px; height: 200px;"><div data-zr-dom-id="bg" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 1403px; height: 200px; user-select: none;"></div><canvas width="1403" height="200" data-zr-dom-id="0" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 1403px; height: 200px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas><canvas width="1403" height="200" data-zr-dom-id="_zrender_hover_" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 1403px; height: 200px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas></div></div>
+				<h5>线图</h5>
+				<div class="chart" id="lineChart" _echarts_instance_="1587867821594" style="-webkit-tap-highlight-color: transparent; user-select: none; background-color: rgba(0, 0, 0, 0); cursor: default;"><div style="position: relative; overflow: hidden; width: 1403px; height: 200px;"><div data-zr-dom-id="bg" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 1403px; height: 200px; user-select: none;"></div><canvas width="1403" height="200" data-zr-dom-id="0" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 1403px; height: 200px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas><canvas width="1403" height="200" data-zr-dom-id="_zrender_hover_" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 1403px; height: 200px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas></div></div>
+				<h5>饼图</h5>
+				<div class="chart" id="pieChart" _echarts_instance_="1587867821595" style="-webkit-tap-highlight-color: transparent; user-select: none; background-color: rgba(0, 0, 0, 0); cursor: default;"><div style="position: relative; overflow: hidden; width: 1403px; height: 200px;"><div data-zr-dom-id="bg" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 1403px; height: 200px; user-select: none;"></div><canvas width="1403" height="200" data-zr-dom-id="0" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 1403px; height: 200px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas><canvas width="1403" height="200" data-zr-dom-id="_zrender_hover_" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 1403px; height: 200px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas></div></div>
+			</div>
+		</div>
+		
+		<script src="./每日图表统计/echarts-all.js"></script>
+		<script>
+			var getOption = function(chartType) {
+				var chartOption = chartType == 'pie' ? {
+					calculable: false,
+					series: [{
+						name: '访问来源',
+						type: 'pie',
+						radius: '65%',
+						center: ['50%', '50%'],
+						data: [{
+							value: 335,
+							name: '直接访问'
+						}, {
+							value: 310,
+							name: '邮件营销'
+						}, {
+							value: 234,
+							name: '联盟广告'
+						}, {
+							value: 135,
+							name: '视频广告'
+						}, {
+							value: 1548,
+							name: '搜索引擎'
+						}]
+					}]
+				} : {
+					legend: {
+						data: ['蒸发量', '降水量']
+					},
+					grid: {
+						x: 35,
+						x2: 10,
+						y: 30,
+						y2: 25
+					},
+					toolbox: {
+						show: false,
+						feature: {
+							mark: {
+								show: true
+							},
+							dataView: {
+								show: true,
+								readOnly: false
+							},
+							magicType: {
+								show: true,
+								type: ['line', 'bar']
+							},
+							restore: {
+								show: true
+							},
+							saveAsImage: {
+								show: true
+							}
+						}
+					},
+					calculable: false,
+					xAxis: [{
+						type: 'category',
+						data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+					}],
+					yAxis: [{
+						type: 'value',
+						splitArea: {
+							show: true
+						}
+					}],
+					series: [{
+						name: '蒸发量',
+						type: chartType,
+						data: [2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+					}, {
+						name: '降水量',
+						type: chartType,
+						data: [2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]
+					}]
+				};
+				return chartOption;
+			};
+			var byId = function(id) {
+				return document.getElementById(id);
+			};
+			var barChart = echarts.init(byId('barChart'));
+			barChart.setOption(getOption('bar'));
+			var lineChart = echarts.init(byId('lineChart'));
+			lineChart.setOption(getOption('line'));
+			var pieChart = echarts.init(byId('pieChart'));
+			pieChart.setOption(getOption('pie'));
+			byId("echarts").addEventListener('tap',function(){
+				var url = this.getAttribute('data-url');
+				if(window.plus){
+					plus.runtime.openURL(url);
+				}else{
+					window.open(url);
+				}
+			},false);
+		</script>
+	
+
+</body></html>
